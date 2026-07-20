@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import MenuCard from "@/components/menu/MenuCard";
-import { getMenuByShop, getCategoriesByShop } from "@/data/menuItems";
+import { getMenuByShop } from "@/data/menuItems";
 import { shops } from "@/data/shops";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Search, ShoppingCart, ArrowLeft } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { api } from "@/services/api";
+import { MenuItem } from "@/types";
 
 const ShopMenu: React.FC = () => {
   const { shopId } = useParams<{ shopId: string }>();
@@ -20,8 +22,28 @@ const ShopMenu: React.FC = () => {
 
   if (!shop) return <Navigate to="/dashboard" replace />;
 
-  const items = getMenuByShop(shop.id);
-  const categories = getCategoriesByShop(shop.id);
+  const [items, setItems] = useState<MenuItem[]>([]);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const data = await api.getMenuItems(shop.id);
+        setItems(data);
+      } catch (err) {
+        console.warn("Backend menu items fetch failed, using local fallback");
+        const localStr = localStorage.getItem("zappadu_menu_items");
+        if (localStr) {
+          const filtered = JSON.parse(localStr).filter((it: any) => it.shopId === shop.id);
+          setItems(filtered);
+        } else {
+          setItems(getMenuByShop(shop.id));
+        }
+      }
+    };
+    fetchItems();
+  }, [shop.id]);
+
+  const categories = ["All", ...Array.from(new Set(items.map((item) => item.category)))];
 
   const filteredItems = items.filter((item) => {
     const matchesCategory = activeCategory === "All" || item.category === activeCategory;

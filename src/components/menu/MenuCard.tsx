@@ -12,6 +12,9 @@ interface MenuCardProps {
 
 const MenuCard: React.FC<MenuCardProps> = ({ item }) => {
   const { addToCart } = useCart();
+  
+  const isOutOfStock = !item.available || (item.stockQuantity !== undefined && item.stockQuantity <= 0);
+  const showLowStock = item.stockQuantity !== undefined && item.stockQuantity > 0 && item.stockQuantity <= 5;
 
   return (
     <Card className="overflow-hidden card-hover group">
@@ -24,10 +27,15 @@ const MenuCard: React.FC<MenuCardProps> = ({ item }) => {
         <Badge className="absolute top-3 left-3 bg-secondary text-secondary-foreground">
           {item.category}
         </Badge>
-        {!item.available && (
+        {isOutOfStock && (
           <div className="absolute inset-0 bg-foreground/50 flex items-center justify-center">
-            <Badge variant="destructive" className="text-lg">Sold Out</Badge>
+            <Badge variant="destructive" className="text-lg font-bold">Out of Stock</Badge>
           </div>
+        )}
+        {showLowStock && (
+          <Badge className="absolute top-3 right-3 bg-amber-500 text-white font-bold animate-pulse">
+            Only {item.stockQuantity} left!
+          </Badge>
         )}
       </div>
       <CardContent className="p-4 space-y-3">
@@ -42,6 +50,11 @@ const MenuCard: React.FC<MenuCardProps> = ({ item }) => {
             <Clock className="h-4 w-4" />
             <span>{item.preparationTime} min</span>
           </div>
+          {item.stockQuantity !== undefined && item.stockQuantity > 0 && (
+            <span className="text-xs font-semibold text-muted-foreground bg-muted px-2 py-0.5 rounded">
+              Stock: {item.stockQuantity}
+            </span>
+          )}
         </div>
         <div className="flex items-center justify-between pt-2">
           <div className="flex items-center font-bold text-lg text-primary">
@@ -51,7 +64,7 @@ const MenuCard: React.FC<MenuCardProps> = ({ item }) => {
           <Button
             size="sm"
             onClick={() => addToCart(item)}
-            disabled={!item.available}
+            disabled={isOutOfStock}
             className="gap-1"
           >
             <Plus className="h-4 w-4" />
