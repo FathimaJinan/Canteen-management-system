@@ -62,10 +62,25 @@ const OrderCard: React.FC<OrderCardProps> = ({ order }) => {
           )}
         </div>
 
-        <div className="flex items-center gap-2 text-xs">
+        <div className="flex flex-wrap items-center gap-2 text-xs">
           <span className={`px-2 py-1 rounded ${order.paymentStatus === 'paid' ? 'bg-success/10 text-success' : 'bg-warning/10 text-warning'}`}>
             {order.paymentStatus === 'paid' ? '✓ Paid Online' : '⏳ Pay at Counter'}
           </span>
+          {order.paymentStatus === 'paid' && (
+            <span className="bg-muted text-muted-foreground px-2 py-1 rounded font-medium">
+              {order.paymentMethod === 'wallet' && '👛 Canteen Wallet'}
+              {order.paymentMethod === 'razorpay_upi' && '📱 Razorpay (UPI)'}
+              {order.paymentMethod === 'razorpay_card' && '💳 Razorpay (Card)'}
+              {order.paymentMethod === 'razorpay_netbanking' && '🏦 Razorpay (NetBanking)'}
+              {order.paymentMethod === 'razorpay_googlepay' && '📱 Razorpay (GPay)'}
+              {order.paymentMethod === 'pay_now' && '💳 Online Payment'}
+            </span>
+          )}
+          {order.paymentFee !== undefined && order.paymentFee > 0 && (
+            <span className="text-[10px] text-muted-foreground">
+              (Fee: ₹{(order.paymentFee + (order.paymentGst || 0)).toFixed(2)})
+            </span>
+          )}
         </div>
 
         {order.status === "ready" && (

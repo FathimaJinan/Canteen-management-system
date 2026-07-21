@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zappadu Canteen Pre-Order System - Project Review</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+    }
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    .slide-active {
+      display: flex !important;
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .gradient-bg {
+      background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.15), transparent),
+                  radial-gradient(circle at bottom left, rgba(99, 102, 241, 0.12), transparent),
+                  #0b0f19;
+    }
+    .gradient-orange {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #ffedd5 0%, #f97316 50%, #f43f5e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(12px);
+      border: 1px rgba(255, 255, 255, 0.08) solid;
+    }
+  </style>
+</head>
+<body class="gradient-bg text-slate-100 min-h-screen overflow-hidden flex flex-col justify-between">
+
+  <!-- Header -->
+  <header class="w-full px-8 py-4 flex justify-between items-center border-b border-slate-800/60 bg-slate-950/40 backdrop-blur-sm z-50">
+    <div class="flex items-center gap-2.5">
+      <div class="h-9 w-9 rounded-lg gradient-orange flex items-center justify-center font-extrabold text-white tracking-tighter text-lg shadow-md shadow-orange-500/20">Z</div>
+      <div>
+        <span class="font-bold text-slate-200 tracking-wide text-base">ZAPPADU</span>
+        <span class="text-[10px] text-slate-400 block -mt-1 font-mono uppercase tracking-widest">Canteen Pre-Order System</span>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center gap-4 text-xs font-mono text-slate-400 bg-slate-900/60 px-4 py-1.5 rounded-full border border-slate-800">
+      <span>Reviewer Copy</span>
+      <span class="text-slate-600">•</span>
+      <span>Fathima Jinan (e23ai036)</span>
+    </div>
+    <div class="text-sm font-semibold px-3 py-1 rounded bg-orange-500/10 text-orange-400 border border-orange-500/20">
+      Slide <span id="slide-num">1</span> of <span id="total-slides">10</span>
+    </div>
+  </header>
+
+  <!-- Slide Wrapper -->
+  <main class="flex-grow flex items-center justify-center px-4 md:px-8 py-6 max-h-[calc(100vh-140px)] overflow-hidden">
+    
+    <!-- SLIDE 1: TITLE SLIDE -->
+    <div class="slide hidden w-full max-w-5xl h-full flex-col justify-center items-center text-center space-y-6" data-slide="1">
+      <div class="inline-flex items-center gap-2 px-4.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-medium uppercase tracking-wider animate-pulse">
+        🚀 Academic Project Presentation
+      </div>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none max-w-4xl">
+        Zappadu: Smart Campus <br class="hidden md:block" />
+        <span class="text-gradient">Canteen Pre-Order System</span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-400 max-w-2xl font-light">
+        A local-first, multi-vendor pre-ordering platform built with React, TypeScript, and a simulated payment architecture.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl w-full pt-8 text-left">
+        <div class="glass-card p-4 rounded-xl">
+          <span class="text-xs text-slate-500 font-mono uppercase block">Presenter</span>
+          <span class="font-bold text-base text-slate-200 block">Fathima Jinan</span>
+          <span class="text-xs text-slate-400 font-mono">Roll: e23ai036</span>
+        </div>
+        <div class="glass-card p-4 rounded-xl">
+          <span class="text-xs text-slate-500 font-mono uppercase block">Project Stack</span>
+          <span class="font-bold text-base text-slate-200 block">React + TS + Tailwind CSS</span>
+          <span class="text-xs text-slate-400 font-mono">Vite + Local Ledger Storage</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: PROBLEM STATEMENT & MOTIVATION -->
+    <div class="slide hidden w-full max-w-5xl h-full flex-col justify-center space-y-6" data-slide="2">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded bg-rose-500/10 text-rose-400 flex items-center justify-center font-bold text-sm border border-rose-500/20">01</div>
+        <h2 class="text-2xl md:text-3xl font-extrabold uppercase tracking-wide">Problem Statement & Motivation</h2>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+        <div class="glass-card p-5 rounded-2xl border-l-4 border-l-rose-500 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-lg text-slate-200 mb-2">Long Waiting Lines</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Students waste valuable recess/break times waiting in long physical queues at multiple canteen outlets.
+            </p>
+          </div>
+          <span class="text-xs text-rose-500 font-mono mt-4 font-semibold uppercase">Time Inefficiency</span>
+        </div>
+
+        <div class="glass-card p-5 rounded-2xl border-l-4 border-l-amber-500 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-lg text-slate-200 mb-2">Cash Handling Bottlenecks</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Manual currency exchange, searching for small change, and verifying physical receipts slows down order booking.
+            </p>
+          </div>
+          <span class="text-xs text-amber-500 font-mono mt-4 font-semibold uppercase">Operational Friction</span>
+        </div>
+
+        <div class="glass-card p-5 rounded-2xl border-l-4 border-l-indigo-500 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-lg text-slate-200 mb-2">Canteen Admin Overhead</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Shop owners struggle to track incoming orders, compute sales statistics, and manage preparation queues in real-time.
+            </p>
+          </div>
+          <span class="text-xs text-indigo-500 font-mono mt-4 font-semibold uppercase">Management Chaos</span>
+        </div>
+      </div>
+      
+      <div class="bg-orange-500/5 border border-orange-500/10 p-4 rounded-xl text-center text-sm max-w-3xl mx-auto mt-4">
+        <strong class="text-orange-400">Project Goal:</strong> Create a system that allows students to pre-order food, choose an estimated pick-up time, pay securely online, and skip queues completely while canteen owners manage orders seamlessly.
+      </div>
+    </div>
+
+    <!-- SLIDE 3: PROPOSED SOLUTION -->
+    <div class="slide hidden w-full max-w-5xl h-full flex-col justify-center space-y-6" data-slide="3">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-sm border border-emerald-500/20">02</div>
+        <h2 class="text-2xl md:text-3xl font-extrabold uppercase tracking-wide">The Zappadu Proposed Solution</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div class="space-y-4">
+          <div class="glass-card p-4 rounded-xl flex gap-4">
+            <div class="h-10 w-10 shrink-0 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold">✓</div>
+            <div>
+              <h4 class="font-semibold text-slate-200">Unified Multi-Vendor Dashboard</h4>
+              <p class="text-xs text-slate-400 leading-normal">
+                Students browse menus from 3 different canteen shops (South Indian, North Indian, Snacks & Juice Bar) on a single platform.
+              </p>
+            </div>
+          </div>
+          <div class="glass-card p-4 rounded-xl flex gap-4">
+            <div class="h-10 w-10 shrink-0 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold">✓</div>
+            <div>
+              <h4 class="font-semibold text-slate-200">Pre-Payment Simulator (Razorpay API Mock)</h4>
+              <p class="text-xs text-slate-400 leading-normal">
+                Fully interactive checkout modal supporting UPI, Card, Net Banking, and Wallet, mimicking payment delays and error rates.
+              </p>
+            </div>
+          </div>
+          <div class="glass-card p-4 rounded-xl flex gap-4">
+            <div class="h-10 w-10 shrink-0 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold">✓</div>
+            <div>
+              <h4 class="font-semibold text-slate-200">Real-Time State Tracker</h4>
+              <p class="text-xs text-slate-400 leading-normal">
+                Active status notifications showing order progression (Pending &rarr; Preparing &rarr; Ready &rarr; Collected).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl flex flex-col justify-center space-y-4">
+          <h3 class="font-bold text-lg text-slate-200 border-b border-slate-800 pb-2">Key System Benefits</h3>
+          <ul class="space-y-2.5 text-sm text-slate-300">
+            <li class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-orange-500"></span>
+              <span><strong>90% Time Saved:</strong> Students grab food directly when ready.</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-orange-500"></span>
+              <span><strong>0% Cash Mistakes:</strong> Auto-ledger ledger logging.</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-orange-500"></span>
+              <span><strong>Optimized Food Prep:</strong> Shops know exact queues in advance.</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-orange-500"></span>
+              <span><strong>Local Reliability:</strong> Offline-first storage safeguards student session data.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: SYSTEM ARCHITECTURE & TECH STACK -->
+    <div class="slide hidden w-full max-w-5xl h-full flex-col justify-center space-y-6" data-slide="4">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold text-sm border border-indigo-500/20">03</div>
+        <h2 class="text-2xl md:text-3xl font-extrabold uppercase tracking-wide">System Architecture & Tech Stack</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 pt-2">
+        <div class="glass-card p-4 rounded-xl text-center space-y-2">
+          <div class="font-bold text-xs text-indigo-400 uppercase tracking-widest font-mono">Core Frontend</div>
+          <div class="text-3xl font-bold text-white">React 18</div>
+          <p class="text-xs text-slate-400 leading-snug">Declarative component hierarchy with Virtual DOM rendering</p>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center space-y-2">
+          <div class="font-bold text-xs text-indigo-400 uppercase tracking-widest font-mono">Language Security</div>
+          <div class="text-3xl font-bold text-white">TypeScript</div>
+          <p class="text-xs text-slate-400 leading-snug">Strict static typing for menu items, users, and orders</p>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center space-y-2">
+          <div class="font-bold text-xs text-indigo-400 uppercase tracking-widest font-mono">Styling Engine</div>
+          <div class="text-3xl font-bold text-white">Tailwind CSS</div>
+          <p class="text-xs text-slate-400 leading-snug">Utility-first styling with shadcn/ui custom UI layout library</p>
+        </div>
+        <div class="glass-card p-4 rounded-xl text-center space-y-2">
+          <div class="font-bold text-xs text-indigo-400 uppercase tracking-widest font-mono">Persistence</div>
+          <div class="text-3xl font-bold text-white">LocalStorage</div>
+          <p class="text-xs text-slate-400 leading-snug">Device ledger database maintaining order logs & wallet balances</p>
+        </div>
+      </div>
+
+      <div class="glass-card p-4 rounded-xl space-y-2">
+        <h4 class="font-semibold text-xs text-slate-400 uppercase tracking-wider font-mono">Context-Driven State Flow</h4>
+        <div class="flex flex-col md:flex-row justify-between items-center gap-2 text-xs font-mono text-center">
+          <span class="bg-slate-900 border border-slate-800 p-2.5 rounded-lg w-full md:w-auto">AuthContext (Active User, Roles, Wallet Balance)</span>
+          <span class="text-slate-500 font-bold">&rarr;</span>
+          <span class="bg-slate-900 border border-slate-800 p-2.5 rounded-lg w-full md:w-auto">CartContext (Custom items, Quantity, Current Shop ID)</span>
+          <span class="text-slate-500 font-bold">&rarr;</span>
+          <span class="bg-slate-900 border border-slate-800 p-2.5 rounded-lg w-full md:w-auto">OrderContext (Place Order, Status, LocalStorage sync)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: STUDENT MODULE DETAILS -->
+    <div class="slide hidden w-full max-w-5xl h-full flex-col justify-center space-y-6" data-slide="5">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-sm border border-amber-500/20">04</div>
+        <h2 class="text-2xl md:text-3xl font-extrabold uppercase tracking-wide">Student Module Features</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-2">
+        <div class="md:col-span-4 glass-card p-5 rounded-2xl flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-slate-200 mb-2">Shop & Menu Navigation</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Browse separate shops. Food items are categorized (Drinks, South Indian, North Indian, Snacks) with clear pricing and descriptions.
+            </p>
+          </div>
+          <span class="bg-amber-500/10 text-amber-400 px-3 py-1 rounded text-[10px] font-bold font-mono self-start uppercase">Shop Interface</span>
+        </div>
+
+        <div class="md:col-span-4 glass-card p-5 rounded-2xl flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-slate-200 mb-2">Checkout Customizer</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Cart dynamically tracks total price. Calculates transaction fees, shows warnings if canteen wallet balance is insufficient.
+            </p>
+          </div>
+          <span class="bg-amber-500/10 text-amber-400 px-3 py-1 rounded text-[10px] font-bold font-mono self-start uppercase">Cart Logic</span>
+        </div>
+
+        <div class="md:col-span-4 glass-card p-5 rounded-2xl flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-slate-200 mb-2">Order History & Tracker</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Real-time update tracker displays status badges. Calculates estimated preparation and ready times dynamically.
+            </p>
+          </div>
+          <span class="bg-amber-500/10 text-amber-400 px-3 py-1 rounded text-[10px] font-bold font-mono self-start uppercase">Status Board</span>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/60 p-3.5 rounded-xl border border-slate-800 text-xs font-mono text-center">
+        Demo Student Credentials: <span class="text-orange-400">student@college.edu</span> / <span class="text-orange-400">student123</span> (or fathima jinan: <span class="text-orange-400">jinan28.8.2005@gmail.com</span>)
+      </div>
+    </div>
+
+    <!-- SLIDE 6: SHOP OWNER MODULE DETAILS -->
+    <div class="slide hidden w-full max-w-5xl h-full flex-col justify-center space-y-6" data-slide="6">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold text-sm border border-teal-500/20">05</div>
+        <h2 class="text-2xl md:text-3xl font-extrabold uppercase tracking-wide">Shop Owner Dashboard</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div class="glass-card p-5 rounded-2xl space-y-4">
+          <h3 class="font-bold text-slate-200 border-b border-slate-800 pb-2 flex justify-between items-center">
+            <span>State Pipeline Controls</span>
+            <span class="text-[10px] text-teal-400 font-mono">ORDER LIFE-CYCLE</span>
+          </h3>
+          <p class="text-xs text-slate-400 leading-normal">
+            Shop owners control their active queues through quick-action button transitions:
+          </p>
+          <div class="space-y-2 text-xs font-mono">
+            <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded border border-slate-800">
+              <span class="text-slate-400 font-bold">1. NEW ORDER (Pending)</span>
+              <span class="text-teal-400 font-semibold">&rarr; Accept</span>
+            </div>
+            <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded border border-slate-800">
+              <span class="text-slate-400 font-bold">2. ACTIVE (Accepted)</span>
+              <span class="text-teal-400 font-semibold">&rarr; Start Preparing</span>
+            </div>
+            <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded border border-slate-800">
+              <span class="text-slate-400 font-bold">3. PREPARING (In Progress)</span>
+              <span class="text-teal-400 font-semibold">&rarr; Mark Ready</span>
+            </div>
+            <div class="flex items-center justify-between bg-slate-950 p-2.5 rounded border border-slate-800">
+              <span class="text-slate-400 font-bold">4. READY (Awaiting Pickup)</span>
+              <span class="text-teal-400 font-semibold">&rarr; Collected</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="glass-card p-5 rounded-2xl space-y-3">
+            <h3 class="font-bold text-slate-200 border-b border-slate-800 pb-2">Business Analytics Panel</h3>
+            <ul class="space-y-3 text-xs text-slate-300">
+              <li class="flex justify-between items-center">
+                <span>Real-Time Sales Counter:</span>
+                <strong class="text-white">Active tabs classify orders automatically</strong>
+              </li>
+              <li class="flex justify-between items-center">
+                <span>Automatic Revenue Ledger:</span>
+                <strong class="text-teal-400">Total gross daily revenue dynamically summed</strong>
+              </li>
+              <li class="flex justify-between items-center">
+                <span>Multi-Vendor Security Scope:</span>
+                <strong class="text-white">Owners only see orders placed for their specific shopId</strong>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-xs font-mono text-center">
+            Demo Shop Credentials (Annapurna): <span class="text-orange-400">annapurna@zappadu.com</span> / <span class="text-orange-400">shop123</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: PAYMENT SYSTEMS & RAZORPAY SIMULATOR -->
+    <div class="slide hidden w-full max-w-5xl h-full flex-col justify-center space-y-5" data-slide="7">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold text-sm border border-cyan-500/20">06</div>
+        <h2 class="text-2xl md:text-3xl font-extrabold uppercase tracking-wide">Integrated Payment Simulators</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+          <div class="space-y-3">
+            <h3 class="font-bold text-lg text-slate-200 border-b border-slate-800 pb-1.5 flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-amber-500"></span>
+              <span>Prepaid Canteen Wallet Ledger</span>
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              An internal digital ledger simulating instant wallet deduction and quick checkout.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-300">
+              <li>• <strong>Instant Checkout:</strong> Order confirmation takes &lt;1 second.</li>
+              <li>• <strong>0% Fee Policy:</strong> Wallet orders incur zero transaction surcharges.</li>
+              <li>• <strong>Device Ledger:</strong> History logs top-ups and deductions on-device.</li>
+            </ul>
+          </div>
+          <span class="text-xs font-mono text-amber-500 mt-4">Simulates fast internal databases</span>
+        </div>
+
+        <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+          <div class="space-y-3">
+            <h3 class="font-bold text-lg text-slate-200 border-b border-slate-800 pb-1.5 flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-blue-500"></span>
+              <span>Razorpay API Sandbox Mock</span>
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Simulates a live integration with payment aggregators like Razorpay.
+            </p>
+            <ul class="space-y-1.5 text-xs text-slate-300">
+              <li>• <strong>Fee Rules:</strong> Cards/Net banking add 2% fee + 18% GST.</li>
+              <li>• <strong>3D-Secure Processing:</strong> 5-second simulated loading state.</li>
+              <li>• <strong>Error Scenarios:</strong> User cancellation simulation handles failures gracefully.</li>
+            </ul>
+          </div>
+          <span class="text-xs font-mono text-blue-400 mt-4">Simulates API response latencies</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: PERSISTENT STATE & DATA SCHEMAS -->
+    <div class="slide hidden w-full max-w-5xl h-full flex-col justify-center space-y-6" data-slide="8">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold text-sm border border-orange-500/20">07</div>
+        <h2 class="text-2xl md:text-3xl font-extrabold uppercase tracking-wide">Data Architecture & Persistence</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div class="glass-card p-5 rounded-2xl space-y-3">
+          <h3 class="font-bold text-slate-200 border-b border-slate-800 pb-2">Structured LocalStorage Ledger</h3>
+          <div class="space-y-2 text-xs font-mono">
+            <div class="flex justify-between items-center py-1 border-b border-slate-800">
+              <span class="text-indigo-400">zappadu_user</span>
+              <span class="text-slate-400">Active session user details & roles</span>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-800">
+              <span class="text-indigo-400">zappadu_users</span>
+              <span class="text-slate-400">Registered users database (emails, passwords, balances)</span>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-800">
+              <span class="text-indigo-400">zappadu_orders</span>
+              <span class="text-slate-400">Unified list of all campus pre-orders</span>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-800">
+              <span class="text-indigo-400">zappadu_wallet_transactions</span>
+              <span class="text-slate-400">Wallet ledger logs (Top-ups, checkout debits)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card p-5 rounded-2xl space-y-3">
+          <h3 class="font-bold text-slate-200 border-b border-slate-800 pb-2">TypeScript Interfaces (Types)</h3>
+          <pre class="text-[10px] text-orange-300 leading-tight font-mono bg-slate-950 p-3.5 rounded-lg border border-slate-800/80 overflow-x-auto">
+interface Order {
+  id: string;
+  items: CartItem[];
+  totalAmount: number;
+  status: OrderStatus; // 'pending' | 'accepted' | 'preparing' ...
+  paymentMethod: 'wallet' | 'razorpay_upi' | 'razorpay_card' | ...;
+  paymentStatus: 'pending' | 'paid';
+  createdAt: Date;
+  studentId: string;
+  shopId: string;
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: ORDER LIFECYCLE STATE MACHINE -->
+    <div class="slide hidden w-full max-w-5xl h-full flex-col justify-center space-y-6" data-slide="9">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded bg-yellow-500/10 text-yellow-400 flex items-center justify-center font-bold text-sm border border-yellow-500/20">08</div>
+        <h2 class="text-2xl md:text-3xl font-extrabold uppercase tracking-wide">Order Lifecycle State Diagram</h2>
+      </div>
+
+      <div class="glass-card p-8 rounded-3xl flex flex-col justify-center space-y-8 pt-6">
+        <div class="grid grid-cols-6 gap-2 text-center text-xs font-mono font-semibold">
+          <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between h-24">
+            <span class="text-slate-500">INIT</span>
+            <span class="text-white">Pending</span>
+            <span class="text-[9px] text-slate-400 font-normal">Order Placed</span>
+          </div>
+          <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between h-24">
+            <span class="text-slate-500">STEP 1</span>
+            <span class="text-amber-400">Accepted</span>
+            <span class="text-[9px] text-slate-400 font-normal">Approved by Shop</span>
+          </div>
+          <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between h-24">
+            <span class="text-slate-500">STEP 2</span>
+            <span class="text-warning">Preparing</span>
+            <span class="text-[9px] text-slate-400 font-normal">Food Cooked</span>
+          </div>
+          <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between h-24">
+            <span class="text-slate-500">STEP 3</span>
+            <span class="text-success">Ready</span>
+            <span class="text-[9px] text-slate-400 font-normal">Pickup Alert Sent</span>
+          </div>
+          <div class="p-3 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between h-24">
+            <span class="text-slate-500">END</span>
+            <span class="text-teal-400">Collected</span>
+            <span class="text-[9px] text-slate-400 font-normal">Meal Handover</span>
+          </div>
+          <div class="p-3 bg-rose-950/20 border border-rose-900/40 rounded-xl flex flex-col justify-between h-24">
+            <span class="text-rose-500/60 font-bold">ABORT</span>
+            <span class="text-rose-400">Cancelled</span>
+            <span class="text-[9px] text-slate-400 font-normal">Refunded / Dead</span>
+          </div>
+        </div>
+
+        <div class="text-xs text-slate-400 leading-relaxed text-center px-4">
+          💡 At each state transition, custom <strong class="text-orange-400">sonner toast notices</strong> trigger in the browser, signaling state updates immediately (e.g. <em>"🔔 Your order is ready for pickup!"</em>).
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: CONCLUSION & FUTURE SCOPE -->
+    <div class="slide hidden w-full max-w-5xl h-full flex-col justify-center space-y-6" data-slide="10">
+      <div class="flex items-center gap-3">
+        <div class="h-8 w-8 rounded bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold text-sm border border-purple-500/20">09</div>
+        <h2 class="text-2xl md:text-3xl font-extrabold uppercase tracking-wide">Conclusion & Future Scope</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-slate-200 mb-2">Project Conclusion</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Zappadu addresses critical student pain points of line delays and cash management in a high-efficiency digital environment. 
+              The React frontend is highly modular, separating authentication, cart managers, order trackers, and payment gateways cleanly via Context providers.
+            </p>
+          </div>
+          <span class="text-xs text-indigo-400 font-mono">Academic Demo Ready</span>
+        </div>
+
+        <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+          <div class="space-y-2">
+            <h3 class="font-bold text-slate-200 border-b border-slate-800 pb-2">Future Enhancements</h3>
+            <ul class="space-y-2 text-xs text-slate-300">
+              <li>🚀 <strong>Production Backend:</strong> Integrate Express/NestJS with a PostgreSQL database.</li>
+              <li>💳 <strong>Live Razorpay API:</strong> Swap simulation layers with production tokens.</li>
+              <li>💬 <strong>SMS/WhatsApp Notifications:</strong> Send order alerts via Twilio.</li>
+              <li>📱 <strong>Mobile Apps:</strong> Bundle using React Native for iOS/Android apps.</li>
+            </ul>
+          </div>
+          <span class="text-xs text-purple-400 font-mono">Scalable Roadmap</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer Navigation -->
+  <footer class="w-full px-8 py-4 border-t border-slate-800/60 bg-slate-950/60 backdrop-blur-sm flex justify-between items-center z-50">
+    <div class="flex items-center gap-2">
+      <button id="btn-prev" class="px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg text-xs font-mono text-slate-300 hover:bg-slate-800 transition disabled:opacity-40" disabled>
+        &larr; Previous Slide
+      </button>
+      <button id="btn-next" class="px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded-lg text-xs font-mono font-semibold transition">
+        Next Slide &rarr;
+      </button>
+    </div>
+    
+    <div class="text-[11px] text-slate-500 font-mono">
+      Use Left/Right Arrow Keys to Navigate. Print or Save to PDF for hardcopy review.
+    </div>
+  </footer>
+
+  <!-- Navigation Logic -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const totalSlidesEl = document.getElementById('total-slides');
+    const slideNumEl = document.getElementById('slide-num');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    
+    let currentSlide = 1;
+    const totalSlides = slides.length;
+    totalSlidesEl.textContent = totalSlides;
+
+    function showSlide(index) {
+      if (index < 1 || index > totalSlides) return;
+      
+      slides.forEach(s => s.classList.remove('slide-active'));
+      
+      const target = document.querySelector(`.slide[data-slide="${index}"]`);
+      if (target) {
+        target.classList.add('slide-active');
+        currentSlide = index;
+        slideNumEl.textContent = currentSlide;
+      }
+      
+      btnPrev.disabled = (currentSlide === 1);
+      if (currentSlide === totalSlides) {
+        btnNext.textContent = 'Restart';
+      } else {
+        btnNext.innerHTML = 'Next Slide &rarr;';
+      }
+    }
+
+    btnPrev.addEventListener('click', () => {
+      showSlide(currentSlide - 1);
+    });
+
+    btnNext.addEventListener('click', () => {
+      if (currentSlide === totalSlides) {
+        showSlide(1);
+      } else {
+        showSlide(currentSlide + 1);
+      }
+    });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') {
+        e.preventDefault();
+        if (currentSlide === totalSlides) {
+          showSlide(1);
+        } else {
+          showSlide(currentSlide + 1);
+        }
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        showSlide(currentSlide - 1);
+      }
+    });
+
+    // Show initial slide
+    showSlide(1);
+  </script>
+</body>
+</html>
